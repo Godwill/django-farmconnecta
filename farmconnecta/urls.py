@@ -19,4 +19,5 @@ from django.conf.urls import include, url
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('farmconnecta.index.urls')),
+    url(r'', include('farmconnecta.products.urls')),
 ]

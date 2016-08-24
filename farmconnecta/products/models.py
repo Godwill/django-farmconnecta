@@ -9,6 +9,7 @@ class Product(models.Model):
     user = models.ForeignKey('auth.User')
     title = models.CharField(max_length=255)
     description = models.TextField()
+    images = models.ImageField(upload_to='products', blank=True)
     created = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(
         blank=True, null=True

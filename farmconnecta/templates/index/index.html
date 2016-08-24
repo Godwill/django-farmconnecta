@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="wrapper">
+    <div class="container">
+        <h1>Welcome</h1>
+          <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </p>
+        <p><a href="{% url 'new_product' %}" class="btn btn-danger btn-lg" href="#" role="button">Get Started</a></p>
+    </div>
+</div>
+
+{% endblock %}
+
+{% include 'partials/footer.html' %}

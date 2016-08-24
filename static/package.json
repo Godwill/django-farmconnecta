@@ -1,0 +1,14 @@
+{
+  "name": "farmconnecta",
+  "version": "1.0.0",
+  "description": "A farmers marketplace",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "author": "",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3"
+  }
+}

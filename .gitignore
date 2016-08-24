@@ -63,3 +63,4 @@ target/
 fc-env
 static/node_modules
 db.*
+CDN
