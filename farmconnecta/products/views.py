@@ -5,6 +5,12 @@ from .models import Product
 
 
 # Create your views here.
+def product_list(request):
+    products = Product.objects.filter().order_by('published_date')
+    print products
+    return render(request, 'products/index.html', {'products': products})
+
+
 def new_product(request):
 
     if request.method == 'POST':

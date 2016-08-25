@@ -5,6 +5,7 @@ import views
 
 
 urlpatterns = [
+	url(r'^products/$', views.product_list, name="product_list"),
 	url(r'^product/new/$', views.new_product, name="new_product"),
 	url(r'^product/(?P<pk>\d+)/$', views.product_details, name="product_details"),
 	url(r'^product/(?P<pk>\d+)/edit/$', views.edit_product, name="edit_product"),
