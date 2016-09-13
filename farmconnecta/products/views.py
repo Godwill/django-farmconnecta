@@ -44,7 +44,13 @@ def edit_product(request, pk):
             product.published_date = timezone.now()
             product.save()
             return redirect('product_details', pk=product.pk)
-        else:
-            form = ProductForm(instance=product)
+    else:
+        form = ProductForm(instance=product)
 
-        return render(request, 'products/edit.html', {'form': form})
+    return render(request, 'products/edit.html', {'form': form})
+
+
+def delete_product(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    product.delete()
+    return redirect('product_list')

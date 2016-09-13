@@ -11,19 +11,28 @@
 
         {% for product in products %}
         <div class="product row">
-            {% if product.published_date %}
-                <div class="date">
-                    {{ product.published_date }}
-                </div>
-            {% endif %}
-            <div class="col-md-4 col-sm-6">
+           <div class="col-md-4 col-sm-6">
                 <img src="{{ product.images.url }}" alt="" class="img-responsive">
             </div>
             <h1>{{ product.title }}</h1>
-            <p>{{ product.description|linebreaksbr }}</p>
-        </div>
-        {% endfor %}
 
+            {% if product.published_date %}
+                <div class="date text-danger">
+                    {{ product.published_date }}
+                </div>
+            {% endif %}
+
+            <h4 class="pull-right alert alert-danger">{{ product.price }}</h4>
+
+            <p>{{ product.description|linebreaksbr }}</p>
+
+            <a class="btn btn-info" href="{% url 'product_details' pk=product.pk %}">Read More</a>
+
+        </div>
+        &nbsp;
+        <hr>
+        &nbsp;
+        {% endfor %}
     </div>
 </div>
 

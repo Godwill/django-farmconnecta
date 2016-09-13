@@ -6,20 +6,29 @@
 <div class="wrapper">
     <div class="container">
 
-        <h3>Create a New Product</h3>
         <a href="{% url 'new_product' %}" class="btn btn-danger pull-right" href="#" role="button">Add Product</a>
 
-        <div class="post">
-            {% if product.published_date %}
-                <div class="date">
-                    {{ product.published_date }}
-                </div>
-            {% endif %}
+        <div class="product">
             <div class="col-md-4 col-sm-6">
                 <img src="{{ product.images.url }}" alt="" class="img-responsive">
             </div>
             <h1>{{ product.title }}</h1>
+
+            {% if product.published_date %}
+                <div class="date text-danger">
+                    {{ product.published_date }}
+                </div>
+            {% endif %}
+
+            <h4 class="pull-right alert alert-danger">{{ product.price }}</h4>
+
             <p>{{ product.description|linebreaksbr }}</p>
+
+            <div class="actions pull-right">
+                <a style="margin-right: 20px;" class="btn btn-info" href="{% url 'edit_product' pk=product.pk %}">Edit</a>
+                <a class="btn btn-danger" href="{% url 'delete_product' pk=product.pk %}">Delete</a>
+            </div>
+            
         </div>
 
     </div>
