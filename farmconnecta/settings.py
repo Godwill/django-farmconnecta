@@ -39,15 +39,23 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    'userena',
-    'userena.contrib.umessages',
-    'guardian',
-    'easy_thumbnails',
+    'bootstrapform',
 
+    # All Auth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.twitter',
+
+
+   # Custom Apps
     'farmconnecta.index',
     'farmconnecta.accounts',
     'farmconnecta.farm',
     'farmconnecta.products',
+
 ]
 
 MIDDLEWARE = [
@@ -76,6 +84,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -113,22 +122,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 AUTHENTICATION_BACKENDS = (
-    'userena.backends.UserenaAuthenticationBackend',
-    'guardian.backends.ObjectPermissionBackend',
+    # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-ANONYMOUS_USER_ID = -1
-
-EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
-
-AUTH_PROFILE_MODULE = 'accounts.MyProfile'
-
-LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
-LOGIN_URL = '/accounts/login/'
-LOGOUT_URL = '/accounts/logout/'
+SITE_ID = 1
 
 
 # Internationalization
