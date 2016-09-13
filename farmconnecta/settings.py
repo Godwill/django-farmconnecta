@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'farmconnecta.index',
+    'farmconnecta.farm',
     'farmconnecta.products',
 ]
 

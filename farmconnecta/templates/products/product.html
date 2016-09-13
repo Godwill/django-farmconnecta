@@ -9,9 +9,13 @@
         <a href="{% url 'new_product' %}" class="btn btn-danger pull-right" href="#" role="button">Add Product</a>
 
         <div class="product">
+
+            {% if product.images %}
             <div class="col-md-4 col-sm-6">
                 <img src="{{ product.images.url }}" alt="" class="img-responsive">
             </div>
+            {% endif %}
+
             <h1>{{ product.title }}</h1>
 
             {% if product.published_date %}

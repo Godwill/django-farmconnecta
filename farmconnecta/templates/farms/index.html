@@ -11,11 +11,10 @@
 
         {% for product in products %}
         <div class="product row">
-
             {% if product.images %}
-           <div class="col-md-4 col-sm-6">
-                <img src="{{ product.images.url }}" alt="" class="img-responsive">
-            </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ product.images.url }}" alt="" class="img-responsive">
+                </div>
             {% endif %}
 
             <h1>{{ product.title }}</h1>
@@ -43,4 +42,3 @@
 {% endblock %}
 
 {% include 'partials/footer.html' %}
-
