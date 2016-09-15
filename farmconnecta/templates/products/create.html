@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block title %} Home {% endblock %}
+{% load bootstrap %}
 {% load staticfiles %}
 {% block content %}
 
@@ -15,10 +16,9 @@
 
         <form method="POST" class="post-form" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="save btn btn-default">Save</button>
+            {{ form|bootstrap_horizontal }}
+            <button type="submit" class="save btn btn-primary">Save</button>
         </form>
-
     </div>
 </div>
 

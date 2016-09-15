@@ -10,8 +10,6 @@
 {% block content %}
 <div class="container">
 
-{% include 'account/account_base.html' %}
-
 <h1>{% trans "Sign In" %}</h1>
 
 {% get_providers as socialaccount_providers %}
@@ -37,7 +35,7 @@ below:{% endblocktrans %}</p>
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
-  {{ form|bootstrap }}
+  {{ form|bootstrap_horizontal }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
