@@ -6,30 +6,34 @@
 <div class="wrapper">
     <div class="container">
 
-        <h3>Products</h3>
-        <a href="{% url 'new_product' %}" class="btn btn-danger pull-right" href="#" role="button">Add Product</a>
+        <h3>Farms</h3>
+        <a href="{% url 'new_farm' %}" class="btn btn-danger pull-right" role="button">Add Farm</a>
 
-        {% for product in products %}
-        <div class="product row">
-            {% if product.images %}
+        {% for farm in farms %}
+        <div class="farm clearfix">
+            {% if farm.images %}
                 <div class="col-md-4 col-sm-6">
-                    <img src="{{ product.images.url }}" alt="" class="img-responsive">
+                    <img src="{{ farm.images.url }}" alt="" class="img-responsive">
                 </div>
             {% endif %}
 
-            <h1>{{ product.title }}</h1>
+            <h1>{{ farm.name }}</h1>
 
-            {% if product.published_date %}
+            {% if farm.published_date %}
                 <div class="date text-danger">
-                    {{ product.published_date }}
+                    {{ farm.published_date }}
                 </div>
             {% endif %}
 
-            <h4 class="pull-right alert alert-danger">{{ product.price }}</h4>
+            <p>{{ farm.description|linebreaksbr }}</p>
 
-            <p>{{ product.description|linebreaksbr }}</p>
+            <br>
 
-            <a class="btn btn-info" href="{% url 'product_details' pk=product.pk %}">Read More</a>
+            <div class="actions pull-right">
+                <a style="margin-right: 20px;" class="btn btn-primary" href="{% url 'farm_details' pk=farm.pk %}">Read More</a>
+                <a style="margin-right: 20px;" class="btn btn-info" href="{% url 'edit_farm' pk=farm.pk %}">Edit</a>
+                <a class="btn btn-danger" href="{% url 'delete_farm' pk=farm.pk %}">Delete</a>
+            </div>
 
         </div>
         &nbsp;

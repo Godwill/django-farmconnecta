@@ -16,7 +16,8 @@
     <div id="navbar" class="navbar-collapse collapse">
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/products">Products</a></li>
+        <li><a href="{% url 'farm_list' %}">Farms</a></li>
+        <li><a href="{% url 'product_list' %}">Products</a></li>
 
         {% if not user.is_authenticated %}
           <li><a href="/accounts/login">Login</a></li>

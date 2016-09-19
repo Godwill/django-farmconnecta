@@ -6,10 +6,10 @@
 <div class="wrapper">
     <div class="container">
 
-        <h3>Edit Product</h3>
-        <a href="{% url 'new_product' %}" class="btn btn-danger pull-right" href="#" role="button">Add Product</a>
+        <h3>Edit Farm</h3>
+        <a href="{% url 'new_farm' %}" class="btn btn-danger pull-right" href="#" role="button">Add Farm</a>
 
-        <div class="product">
+        <div class="farm">
             <form method="POST" class="post-form" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}

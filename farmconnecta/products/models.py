@@ -3,12 +3,12 @@ from django.utils import timezone
 from django.db import models
 from decimal import Decimal
 
-# Create your models here.
 
+# Create your models here.
 
 class Product(models.Model):
     user = models.ForeignKey('auth.User')
-    # farm = models.ForeignKey('farm.Farm', null=True, blank=True)
+    farm = models.ForeignKey('farm.Farm', null=True, blank=True)
     title = models.CharField(max_length=255)
     description = models.TextField()
     quantity = models.PositiveIntegerField(default=1)
