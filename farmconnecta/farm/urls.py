@@ -5,6 +5,7 @@ import views
 
 
 urlpatterns = [
+	url(r'^farms/$', views.farm_list, name="farm_list"),
 	url(r'^farm/new/$', views.new_farm, name="new_farm"),
 	url(r'^farm/(?P<pk>\d+)/$', views.farm_details, name="farm_details"),
 	url(r'^farm/(?P<pk>\d+)/edit/$', views.edit_farm, name="edit_farm"),

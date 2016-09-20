@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %} Profile {% endblock %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="wrapper">
+    <div class="container">
+
+        <h3>Welcome, {{ user.first_name }}</h3>
+
+        {% if user.is_authenticated %}
+            <img src="{{ request.user.profile.profile_image_url }}"/>
+            {% if request.user.profile.account_verified %} (verified) {% else %} (unverified) {% endif %}
+
+        <div class="follow">
+            <a class="btn btn-success" href="{% url 'follow_user' pk=user.id %}">Follow User</a>
+            <a class="btn btn-danger" href="{% url 'unfollow_user' pk=user.id %}">Unfollow User</a>
+        </div>
+
+        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% include 'partials/footer.html' %}
+

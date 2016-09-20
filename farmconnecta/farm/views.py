@@ -5,6 +5,11 @@ from .models import Farm
 
 
 # Create your views here.
+def farm_list(request):
+    farms = Farm.objects.filter().order_by('published_date')
+    print farms
+    return render(request, 'farms/index.html', {'farms': farms})
+
 
 def new_farm(request):
 
@@ -25,7 +30,9 @@ def new_farm(request):
 
 def farm_details(request, pk):
     farm = get_object_or_404(Farm, pk=pk)
-    return render(request, 'farms/farm.html', {'farm': farm})
+    products = farm.product_set.all()
+    print products
+    return render(request, 'farms/farm.html', {'farm': farm, 'products': products})
 
 
 def edit_farm(request, pk):
