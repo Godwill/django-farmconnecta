@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="wrapper">
+    <div class="container">
+
+        <a href="{% url 'new_vendor_product' %}" class="btn btn-danger pull-right" role="button">Add Product</a>
+
+        <div class="product">
+
+            {% if vendor_product.images %}
+            <div class="col-md-4 col-sm-6">
+                <img src="{{ vendor_product.images.url }}" alt="" class="img-responsive">
+            </div>
+            {% endif %}
+
+            <h1>{{ vendor_product.title }}</h1>
+            <h4>{{ vendor_product.vendor }}</h4>
+            <h4>{{ vendor_product.category }}</h4>
+
+            {% if vendor_product.published_date %}
+                <div class="date text-danger">
+                    {{ vendor_product.published_date }}
+                </div>
+            {% endif %}
+
+            <h4 class="pull-right alert alert-danger">{{ vendor_product.price }}</h4>
+
+            <p>{{ vendor_product.description|linebreaksbr }}</p>
+
+            <div class="map">
+                <iframe width="100%" height="350" frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?q={{ vendor_product.vendor.latitude }},{{ vendor_product.vendor.longitude }}&key=AIzaSyDTke3t80rv1lW6OTVwHseliRNKiqRuLFc" allowfullscreen>
+                    </iframe>
+            </div>
+
+            <div class="actions pull-right">
+                <a style="margin-right: 20px;" class="btn btn-info" href="{% url 'edit_vendor_product' pk=vendor_product.pk %}">Edit</a>
+                <a class="btn btn-danger" href="{% url 'delete_vendor_product' pk=vendor_product.pk %}">Delete</a>
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% include 'partials/footer.html' %}
