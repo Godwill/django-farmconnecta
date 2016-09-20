@@ -23,4 +23,6 @@ urlpatterns = [
     url(r'', include('farmconnecta.accounts.urls')),
     url(r'', include('farmconnecta.farm.urls')),
     url(r'', include('farmconnecta.products.urls')),
+    url(r'', include('farmconnecta.vendors.urls')),
+    url(r'', include('farmconnecta.vendor_product.urls')),
 ]

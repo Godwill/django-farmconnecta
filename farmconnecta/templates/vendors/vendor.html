@@ -6,50 +6,50 @@
 <div class="wrapper">
     <div class="container">
 
-        <a href="{% url 'new_farm' %}" class="btn btn-danger pull-right" role="button">Add Farm</a>
+        <a href="{% url 'new_vendor' %}" class="btn btn-danger pull-right" role="button">Add Vendor</a>
 
 
     <div class="row">
         <div class="col-md-12">
-            <h3>{{ farm.name }}</h3>
+            <h3>{{ vendor.name }}</h3>
 
-            <div class="farm clearfix">
-            {% if farm.images %}
+            <div class="vendor clearfix">
+            {% if vendor.images %}
                 <div class="col-md-4 col-sm-6">
-                    <img src="{{ farm.images.url }}" alt="" class="img-responsive">
+                    <img src="{{ vendor.images.url }}" alt="" class="img-responsive">
                 </div>
             {% endif %}
 
 
-            {% if farm.published_date %}
+            {% if vendor.published_date %}
                 <div class="date text-danger">
-                    {{ farm.published_date }}
+                    {{ vendor.published_date }}
                 </div>
             {% endif %}
 
-            <p>{{ farm.description|linebreaksbr }}</p>
+            <p>{{ vendor.description|linebreaksbr }}</p>
 
             <br>
 
             <div class="map col-xs-12">
 
                 <iframe width="100%" height="350" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?q={{ farm.latitude }},{{ farm.longitude }}&key=AIzaSyDTke3t80rv1lW6OTVwHseliRNKiqRuLFc" allowfullscreen>
+src="https://www.google.com/maps/embed/v1/place?q={{ vendor.latitude }},{{ vendor.longitude }}&key=AIzaSyDTke3t80rv1lW6OTVwHseliRNKiqRuLFc" allowfullscreen>
                 </iframe>
 
             </div>
 
             <div class="actions pull-right">
-                <a style="margin-right: 20px;" class="btn btn-primary" href="{% url 'farm_details' pk=farm.pk %}">Read More</a>
-                <a style="margin-right: 20px;" class="btn btn-info" href="{% url 'edit_farm' pk=farm.pk %}">Edit</a>
-                <a class="btn btn-danger" href="{% url 'delete_farm' pk=farm.pk %}">Delete</a>
+                <a style="margin-right: 20px;" class="btn btn-primary" href="{% url 'vendor_details' pk=vendor.pk %}">Read More</a>
+                <a style="margin-right: 20px;" class="btn btn-info" href="{% url 'edit_vendor' pk=vendor.pk %}">Edit</a>
+                <a class="btn btn-danger" href="{% url 'delete_vendor' pk=vendor.pk %}">Delete</a>
             </div>
 
         </div>
         </div>
 
         <div class="col-md-12">
-            <h3>Products in this Farm</h3>
+            <h3>Vendors Products</h3>
             {% for product in products %}
             <div class="product">
 

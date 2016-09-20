@@ -6,10 +6,10 @@
 <div class="wrapper">
     <div class="container">
 
-        <h3>Products</h3>
-        <a href="{% url 'new_product' %}" class="btn btn-danger pull-right" role="button">Add Product</a>
+        <h3>Vendor Products</h3>
+        <a href="{% url 'new_vendor_product' %}" class="btn btn-danger pull-right" role="button">Add Product</a>
 
-        {% for product in products %}
+        {% for product in vendor_products %}
         <div class="product row">
 
             {% if product.images %}
@@ -30,7 +30,7 @@
 
             <p>{{ product.description|linebreaksbr }}</p>
 
-            <a class="btn btn-info" href="{% url 'product_details' pk=product.pk %}">Read More</a>
+            <a class="btn btn-info" href="{% url 'vendor_product_details' pk=product.pk %}">Read More</a>
 
         </div>
         &nbsp;

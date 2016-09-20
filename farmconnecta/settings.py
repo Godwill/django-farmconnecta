@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'farmconnecta.accounts',
     'farmconnecta.farm',
     'farmconnecta.products',
+    'farmconnecta.vendors',
+    'farmconnecta.vendor_product',
 
 ]
 
