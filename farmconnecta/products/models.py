@@ -8,6 +8,7 @@ from decimal import Decimal
 
 class Product(models.Model):
     user = models.ForeignKey('auth.User')
+    category = models.ForeignKey('categories.Categories')
     farm = models.ForeignKey('farm.Farm', null=True, blank=True)
     title = models.CharField(max_length=255)
     description = models.TextField()
@@ -17,32 +18,6 @@ class Product(models.Model):
     created = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(
         blank=True, null=True
-    )
-
-    category_choices = (
-        ('Small Stock', (
-            ('Goats', 'Goats'),
-            ('Sheep', 'Sheep'),
-            )
-        ),
-        ('Cattle', 'Cattle'),
-        ('Poultry', (
-                ('Chicken', 'Chicken'),
-                ('Geese', 'Geese'),
-            )
-        ),
-        ('Fresh Produce', (
-                ('Spinach', 'Spinach'),
-                ('Cabbage', 'Cabbage'),
-            )
-        )
-    )
-
-    category = models.CharField(
-        max_length=255,
-        choices=category_choices,
-        blank=False,
-        default='None'
     )
 
     def publish(self):

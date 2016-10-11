@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('farmconnecta.index.urls')),
     url(r'', include('farmconnecta.accounts.urls')),
+    url(r'', include('farmconnecta.categories.urls')),
     url(r'', include('farmconnecta.farm.urls')),
     url(r'', include('farmconnecta.products.urls')),
     url(r'', include('farmconnecta.vendors.urls')),
