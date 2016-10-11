@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="wrapper">
+    <div class="container text-center">
+
+        <a href="{% url 'category' path='' %}">
+            <h3>{% if instance %}{{ instance.name }}{% else %}Gallery main page{% endif %}</h3>
+        </a>
+
+        {% for ancestor in instance.get_ancestors %}
+            <a href="{{ ancestor.get_absolute_url }}">{{ ancestor.name }}</a>
+        {% endfor %}
+
+        <ul>
+            {% for child in children %}
+                <li><a href="{{ child.get_absolute_url }}">{{ child.name }}</a></li>
+            {% empty %}
+                <li>No items</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% include 'partials/footer.html' %}
+

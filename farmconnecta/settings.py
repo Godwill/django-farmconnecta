@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     'bootstrapform',
+    'mptt',
 
     # All Auth
     'allauth',
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
    # Custom Apps
     'farmconnecta.index',
     'farmconnecta.accounts',
+    'farmconnecta.categories',
     'farmconnecta.farm',
     'farmconnecta.products',
     'farmconnecta.vendors',
@@ -141,6 +143,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
+MPTT_ADMIN_LEVEL_INDENT = 20
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/

@@ -9,16 +9,16 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, related_name='profile')
     mobile_number = models.CharField(max_length=8, blank=True)
     follows = models.ManyToManyField(User, blank=True, related_name='follows')
-    Producer = 'PRD'
-    Buyer = 'BUY'
-    Pro = 'PRO'
+    Producer = 'Producer'
+    Buyer = 'Buyer'
+    Pro = 'Pro Account'
     user_type_choices = (
         (Producer, 'Farmer'),
         (Buyer, 'Buyer'),
         (Pro, 'Pro Account'),
     )
     user_type = models.CharField(
-        max_length=3,
+        max_length=255,
         choices=user_type_choices,
         default=Buyer,
     )
